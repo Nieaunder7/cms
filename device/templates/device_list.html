@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ page_title }}
+{% endblock %}
+
+{% block contents %}
+추가 / 삭제 / 수정
+<hr>
+<div>
+    <ul>
+        {% for device in devices %}
+        <li>
+            {{ device.name }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

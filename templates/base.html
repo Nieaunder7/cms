@@ -2,12 +2,20 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>
-            {% block title %}{% endblock %}
-        </title>
+        <title>{{ title }}</title>
     </head>
     <body>
+        <h1>{{ title }}</h1>
+        <a href={% url 'project:project_list' %}>프로젝트</a> /
+        <a href={% url 'report:report_list' %}>리포트</a> / 
+        <a href={% url 'device:device_list' %}>장치</a> / 
+        <a href={% url 'member:member_list' %}>회원</a>
+        <hr>
         {% block contents %}
         {% endblock %}
     </body>
+    <footer>
+        <hr>
+        {{ footer }}
+    </footer>
 </html>
