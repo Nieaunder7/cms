@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}
-Member List
+{{ page_title }}
 {% endblock %}
 
 {% block contents %}
+<h1>{{ page_title }}</h1>
 <div>
     <ul>
         {% for member in members %}
