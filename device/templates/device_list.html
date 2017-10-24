@@ -4,13 +4,29 @@
 {% endblock %}
 
 {% block contents %}
-추가 / 삭제 / 수정
+<a href="{% url 'device:device_create' 'STB' %}">STB 추가</a>
+<a href="{% url 'device:device_create' 'AP' %}">AP 추가</a>
+<a href="{% url 'device:device_create' 'RC' %}">리모컨 추가</a>
 <hr>
 <div>
     <ul>
-        {% for device in devices %}
+        <p>stb 목록</p>
+        {% for device in devices_stb %}
         <li>
-            {{ device.name }}
+            {{ device.id }} // {{ device.name }} // <a href="{% url 'device:device_update' 'STB' device.id %}" class="btn btn-default">수정</a> // <a href="{% url 'device:device_delete' 'STB' device.id %}" class="btn btn-default">삭제</a>
+        </li>
+        {% endfor %}
+        <p>AP 목록</p>
+        {% for device in devices_ap %}
+        <li>
+            {{ device.id }} // {{ device.name }} // <a href="{% url 'device:device_update' 'AP' device.id %}" class="btn btn-default">수정</a> // <a href="{% url 'device:device_delete' 'AP' device.id %}" class="btn btn-default">삭제</a>
+        </li>
+        {% endfor %}
+
+        <p>리모컨 목록</p>
+        {% for device in devices_rc %}
+        <li>
+            {{ device.id }} // {{ device.name }} // <a href="{% url 'device:device_update' 'RC' device.id %}" class="btn btn-default">수정</a> // <a href="{% url 'device:device_delete' 'RC' device.id %}" class="btn btn-default">삭제</a>
         </li>
         {% endfor %}
     </ul>

@@ -5,11 +5,13 @@
 
 {% block contents %}
 <h1>{{ page_title }}</h1>
+추가 
+<hr>
 <div>
     <ul>
         {% for project in projects %}
         <li>
-            {{ project.name }}
+            {{ project.name }} // 수정 // 삭제
         </li>
         {% endfor %}
     </ul>

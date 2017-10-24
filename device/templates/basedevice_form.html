@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ page_title }}
+{% endblock %}
+
+{% block contents %}
+    {{name}}
+    <form action="." method="POST">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="확인">
+        <a href="{% url 'device:device_list' %}" >취소</a>
+    </form>
+{% endblock %}
