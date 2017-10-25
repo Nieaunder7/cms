@@ -5,11 +5,12 @@
 
 {% block contents %}
 <h1>{{ page_title }}</h1>
+<a href="{% url 'member:member_add' %}">등록</a>
 <div>
     <ul>
         {% for member in members %}
         <li>
-            {{ member.name }}
+            {{ member.name }}  //  <a href="{% url 'member:member_update' member.id %}">수정</a> // <a href="{% url 'member:member_delete' member.id %}">삭제</a>
         </li>
         {% endfor %}
     </ul>

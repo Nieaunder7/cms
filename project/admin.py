@@ -3,4 +3,7 @@ from .models import Project
 
 # Register your models here.
 
-admin.site.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display=['name','start_date','end_date','project_device','project_member']
+
+admin.site.register(Project,ProjectAdmin)
