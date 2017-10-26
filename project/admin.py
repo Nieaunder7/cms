@@ -4,6 +4,6 @@ from .models import Project
 # Register your models here.
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display=['name','start_date','end_date','project_device','project_member']
+    list_display=['name','start_date','end_date','comment']
 
 admin.site.register(Project,ProjectAdmin)

@@ -5,7 +5,7 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        fields = ['name','start_date','end_date','project_device','project_member']
+        fields = ['name','start_date','end_date','comment']
 
 # class ProjectDeviceForm(forms.ModelForm):
 

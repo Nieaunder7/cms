@@ -9,8 +9,7 @@
         {% csrf_token %}
         <p>프로젝트 이름 : {{project_form.name}}</p>
         <p>일정 : {{project_form.start_date}} ~ {{project_form.end_date}}</p>
-        <p>대상 장비 : {{project_form.project_device}}</p>
-        <p>참여 인원 : {{project_form.project_member}}</p>
+        <p>비고 : {{project_form.comment}}</p>
         <input type="submit" value="확인">
         <a href="{% url 'project:project_list' %}" >취소</a>
     </form>
