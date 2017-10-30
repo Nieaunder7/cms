@@ -11,7 +11,7 @@
     <ul>
         {% for project in projects %}
         <li>
-            {{ project.name }} // 수정 // 삭제
+            {{project.id}} // {{ project.name }} // <a href="{% url 'project:project_update' project.id %}">수정</a>// <a href="{% url 'project:project_delete' project.id %}">삭제</a> 
         </li>
         {% endfor %}
     </ul>
