@@ -10,13 +10,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# def device_list(request):
-#     devices = BaseDevice.objects.all()
-#     param = {
-#         'title':"장치 리스트", 
-#         'devices':devices
-#         }
-#     return render(request, 'device_list.html', param)
 @login_required
 def device_list(request):
     devices_stb = Settopbox.objects.all()
