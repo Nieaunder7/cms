@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'device',
     'member', 
     'djangobower',
+    'django_extensions',
+    
 ]
 
 MIDDLEWARE = [

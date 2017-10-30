@@ -12,11 +12,8 @@
 <script src='{% static 'fullcalendar/dist/locale-all.js' %}'></script>
 <script>
     $(document).ready(function() {
-
-    // page is now ready, initialize the calendar...
-
-    $('#calendar').fullCalendar({
-        locale: 'ko',
+        $('#calendar').fullCalendar({
+            locale: 'ko',
         // put your options and callbacks here
         events: [
 				{
@@ -29,9 +26,8 @@
 					start: '2017-10-17',
 					end: '2017-10-19'
 				}]
+        });
     });
-
-});
 </script>
 <h1>{{ page_title }}</h1>
 <a href="{% url 'project:project_add' %}">추가</a>
