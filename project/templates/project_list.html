@@ -1,9 +1,38 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block title %}
 {{ page_title }}
 {% endblock %}
 
 {% block contents %}
+<link rel='stylesheet' href='{% static 'fullcalendar/dist/fullcalendar.css' %}'/>
+<script src='{% static 'jquery/dist/jquery.js' %}'></script>
+<script src='{% static 'moment/moment.js' %}'></script>
+<script src='{% static 'fullcalendar/dist/fullcalendar.js' %}'></script>
+<script src='{% static 'fullcalendar/dist/locale-all.js' %}'></script>
+<script>
+    $(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        locale: 'ko',
+        // put your options and callbacks here
+        events: [
+				{
+					title: 'Long Event',
+					start: '2017-10-07',
+					end: '2017-10-10'
+				},
+                {
+					title: 'S200 벤치마크 ',
+					start: '2017-10-17',
+					end: '2017-10-19'
+				}]
+    });
+
+});
+</script>
 <h1>{{ page_title }}</h1>
 <a href="{% url 'project:project_add' %}">추가</a>
 <hr>
@@ -16,4 +45,5 @@
         {% endfor %}
     </ul>
 </div>
+<div id='calendar'></div>
 {% endblock %}
