@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import AccessPointCreateForm,SettopboxCreateForm,RemoteControllerCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, DeleteView, UpdateView, TemplateView
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy 
+
 from .models import BaseDevice, Settopbox, AccessPoint, RemoteController
+from .forms import AccessPointCreateForm,SettopboxCreateForm,RemoteControllerCreateForm
 import logging
 
 logger = logging.getLogger(__name__)
 
+@login_required
 def device_list(request):
     devices_stb = Settopbox.objects.all()
     devices_ap = AccessPoint.objects.all()
@@ -37,9 +40,7 @@ def device_add(request,types):
             elif types == "RC":
                 forms = RemoteControllerCreateForm(request.POST)
                 if forms.is_valid():
-                    logger.error("리모컨 폼")
                     forms.save()
-                    logger.error("리모컨 등록")
                     return redirect('device:device_list')          
         else :
             if types == "STB" :

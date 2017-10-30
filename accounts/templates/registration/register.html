@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}-Register {% endblock %}
+
+{% block contents %}
+<div class="alert aler-info" role="alert">회원가입</div>
+<form action="." method="POST">
+    {{form.as_p}}
+    {% csrf_token %}
+    <input class="btn btn-default" type="submit" value="등록">
+</form>
+{% endblock %}

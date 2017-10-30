@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ page_title }}
+{% endblock %}
+
+{% block contents %}
+<div>
+    <form action="." method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="확인">
+        <a href="{% url 'testcase:testcase_list' %}" >취소</a>
+    </form>
+</div>
+{% endblock %}

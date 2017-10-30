@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from project.models import Project
 from .forms import ProjectForm
 import logging
 
 logger = logging.getLogger(__name__)
 
+@login_required
 def project_list(request):
     projects = Project.objects.all()
     param = {
@@ -14,7 +16,6 @@ def project_list(request):
     return render(request, 'project_list.html', param)
 
 def project_add(request):
-    logger.error("project_add")
     if request.method == "POST":
         logger.error("POST")
         project_form = ProjectForm(request.POST)
@@ -29,6 +30,7 @@ def project_add(request):
         return render(request,'project_form.html',{'project_form':project_form})
 
 ## 프로젝트 수정
+@login_required
 def project_update(request,pk):
     model = get_object_or_404(Project,pk=pk)
     if request.method == "POST":

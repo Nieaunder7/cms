@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from report.models import BaseReport
 
+@login_required
 def report_list(request):
     reports = BaseReport.objects.all()
     param = {

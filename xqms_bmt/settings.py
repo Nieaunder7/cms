@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'project', 
     'report', 
     'device',
-    'member', 
+    'member',
+    'accounts',
+    'board',
+    'testcase',
     'djangobower',
     'django_extensions',
     
@@ -61,7 +64,7 @@ ROOT_URLCONF = 'xqms_bmt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates/')],
+        'DIRS': [os.path.join(BASE_DIR,'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,6 +131,7 @@ PROJECT_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(__file__), ".."),
 )
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATICFILES_FINDERS = (

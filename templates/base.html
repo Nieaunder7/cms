@@ -5,12 +5,25 @@
         <title>{{ title }}</title>
     </head>
     <body>
+        <nav>
+            <ul>
+                {% if user.is_active %}
+                    <li>Welcom, {{user.get_username}}</li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">회원가입</a></li>
+                {% endif %}
+            </ul>
+        </nav>
         <h1>{{ title }}</h1>
-        <a href={% url 'project:project_list' %}>프로젝트</a> /
-        <a href={% url 'report:report_list' %}>리포트</a> / 
-        <a href={% url 'device:device_list' %}>장치</a> / 
-        <a href={% url 'member:member_list' %}>회원</a>
+        <a href="{% url 'project:project_list' %}">프로젝트</a> /
+        <a href="{% url 'report:report_list' %}">리포트</a> / 
+        <a href="{% url 'device:device_list' %}">장치</a> / 
+        <a href="{% url 'member:member_list' %}">회원</a> /
+        <a href="{% url 'testcase:testcase_list' %}">테스트현황</a>
         <hr>
+
         {% block contents %}
         {% endblock %}
     </body>

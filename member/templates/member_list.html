@@ -5,14 +5,43 @@
 
 {% block contents %}
 <h1>{{ page_title }}</h1>
-<a href="{% url 'member:member_add' %}">등록</a>
+<p><a href="{% url 'member:member_add' %}">등록</a></p>
 <div>
-    <ul>
+    <!-- <ul>
         {% for member in members %}
         <li>
             {{ member.name }}  //  <a href="{% url 'member:member_update' member.id %}">수정</a> // <a href="{% url 'member:member_delete' member.id %}">삭제</a>
         </li>
         {% endfor %}
-    </ul>
+    </ul> -->
+    <table border='1'>
+            <thead >
+                <tr>
+                    <th>No</th>
+                    <th>부서</th>    
+                    <th>이름</th>
+                    <th>이메일주소</th>
+                    <th>핸드폰 번호</th>
+                    <th>활성화상태</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{member.id}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.department}}</td>
+                    <td>{{member.email_address}}</td>
+                    <td>{{member.phone_number}}</td>
+                    <td>{{member.enable}}</td>
+                    <td><a href="{% url 'member:member_update' member.id %}">수정</a></td>
+                    <td><a href="{% url 'member:member_delete' member.id %}">삭제</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>    
 </div>
 {% endblock %}

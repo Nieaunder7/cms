@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Member, Department
 from .forms import MemberCreateForm
 
@@ -6,6 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+@login_required
 def member_list(request):
     members = Member.objects.all()
     param = {

@@ -9,26 +9,105 @@
 <a href="{% url 'device:device_create' 'RC' %}">리모컨 추가</a>
 <hr>
 <div>
-    <ul>
-        <p>stb 목록</p>
-        {% for device in devices_stb %}
-        <li>
-            {{ device.id }} // {{ device.name }} // <a href="{% url 'device:device_update' 'STB' device.id %}" class="btn btn-default">수정</a> // <a href="{% url 'device:device_delete' 'STB' device.id %}" class="btn btn-default">삭제</a>
-        </li>
-        {% endfor %}
+    <p>STB 목록</p>
+    <table border='1'>
+            <thead >
+                <tr>
+                    <th>No</th>
+                    <th>이름</th>
+                    <th>모델명</th>
+                    <th>제조사</th>
+                    <th>Service</th>
+                    <th>펌웨어</th>
+                    <th>비고</th>
+                    <th>MAC 주소</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for device in devices_stb %}
+                <tr>
+                    <td>{{device.id}}</td>
+                    <td>{{device.name}}</td>
+                    <td>{{device.model}}</td>
+                    <td>{{device.manufacturer}}</td>
+                    <td>{{device.service}}</td>
+                    <td>{{device.firmware}}</td>
+                    <td>{{device.comment}}</td>
+                    <th>{{device.mac_address}}</th>
+                    <td><a href="{% url 'device:device_update' 'STB' device.id %}">수정</a></td>
+                    <td><a href="{% url 'device:device_delete' 'STB' device.id %}">삭제</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>
         <p>AP 목록</p>
-        {% for device in devices_ap %}
-        <li>
-            {{ device.id }} // {{ device.name }} // <a href="{% url 'device:device_update' 'AP' device.id %}" class="btn btn-default">수정</a> // <a href="{% url 'device:device_delete' 'AP' device.id %}" class="btn btn-default">삭제</a>
-        </li>
-        {% endfor %}
-
-        <p>리모컨 목록</p>
-        {% for device in devices_rc %}
-        <li>
-            {{ device.id }} // {{ device.name }} // <a href="{% url 'device:device_update' 'RC' device.id %}" class="btn btn-default">수정</a> // <a href="{% url 'device:device_delete' 'RC' device.id %}" class="btn btn-default">삭제</a>
-        </li>
-        {% endfor %}
-    </ul>
+        <table border='1'>
+                <thead >
+                    <tr>
+                        <th>No</th>
+                        <th>이름</th>
+                        <th>모델명</th>
+                        <th>제조사</th>
+                        <th>Service</th>
+                        <th>펌웨어</th>
+                        <th>비고</th>
+                        <th>MAC 주소</th>
+                        <th>수정</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for device in devices_ap %}
+                    <tr>
+                        <td>{{device.id}}</td>
+                        <td>{{device.name}}</td>
+                        <td>{{device.model}}</td>
+                        <td>{{device.manufacturer}}</td>
+                        <td>{{device.service}}</td>
+                        <td>{{device.firmware}}</td>
+                        <td>{{device.comment}}</td>
+                        <th>{{device.mac_address}}</th>
+                        <td><a href="{% url 'device:device_update' 'AP' device.id %}">수정</a></td>
+                        <td><a href="{% url 'device:device_delete' 'AP' device.id %}">삭제</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        
+            </table> 
+            <p>리모컨 목록</p>
+            <table border='1'>
+                    <thead >
+                        <tr>
+                            <th>No</th>
+                            <th>이름</th>
+                            <th>모델명</th>
+                            <th>제조사</th>
+                            <th>Service</th>
+                            <th>펌웨어</th>
+                            <th>비고</th>
+                            <th>수정</th>
+                            <th>삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for device in devices_rc %}
+                        <tr>
+                            <td>{{device.id}}</td>
+                            <td>{{device.name}}</td>
+                            <td>{{device.model}}</td>
+                            <td>{{device.manufacturer}}</td>
+                            <td>{{device.service}}</td>
+                            <td>{{device.firmware}}</td>
+                            <td>{{device.comment}}</td>
+                            <td><a href="{% url 'device:device_update' 'RC' device.id %}">수정</a></td>
+                            <td><a href="{% url 'device:device_delete' 'RC' device.id %}">삭제</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+            
+                </table>      
 </div>
 {% endblock %}
