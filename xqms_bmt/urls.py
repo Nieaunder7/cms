@@ -18,9 +18,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/',include('accounts.urls')),
+    url(r'^testcase/', include('testcase.urls',namespace='testcase')),
     url(r'^member/', include('member.urls', namespace='member')),
     url(r'^device/', include('device.urls', namespace='device')),
     url(r'^project/', include('project.urls', namespace='project')),
     url(r'^report/', include('report.urls', namespace='report')),
-    url(r'^', include('project.urls')),
+    url(r'^$', include('project.urls')),
 ]

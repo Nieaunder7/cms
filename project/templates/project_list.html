@@ -8,12 +8,39 @@
 <a href="{% url 'project:project_add' %}">추가</a>
 <hr>
 <div>
-    <ul>
+    <!-- <ul>
         {% for project in projects %}
         <li>
             {{project.id}} // {{ project.name }} // <a href="{% url 'project:project_update' project.id %}">수정</a>// <a href="{% url 'project:project_delete' project.id %}">삭제</a> 
         </li>
         {% endfor %}
-    </ul>
+    </ul> -->
+    <table border='1'>
+            <thead >
+                <tr>
+                    <th>No</th>
+                    <th>이름</th>    
+                    <th>시작일</th>
+                    <th>종료일</th>
+                    <th>비고</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                <tr>
+                    <td>{{project.id}}</td>
+                    <td>{{project.name}}</td>
+                    <td>{{project.start_date}}</td>
+                    <td>{{project.end_date}}</td>
+                    <td>{{project.comment}}</td>
+                    <td><a href="{% url 'project:project_update' project.id %}">수정</a></td>
+                    <td><a href="{% url 'project:project_delete' project.id %}">삭제</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>   
 </div>
 {% endblock %}

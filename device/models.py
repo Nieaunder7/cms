@@ -1,6 +1,7 @@
 from django.db import models
 
 class BaseDevice(models.Model):
+    
     name = models.CharField(max_length=50)
     model = models.CharField(max_length=20)
     manufacturer = models.CharField(max_length=20)

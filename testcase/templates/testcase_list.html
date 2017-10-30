@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ page_title }}
+{% endblock %}
+
+{% block contents %}
+
+<hr>
+<h1>{{ page_title }}</h1>
+<div>
+    <!-- <ul>
+        <a href="{% url 'testcase:testcase_add' %}">등록</a>
+        <p>테스트현황</p>  
+        {% for row in testcase %}
+        <li>
+            {{row.id}} // {{row.suite}} // {{row.case}} // {{row.task}} // {{row.priority}} // {{row.context}} // {{row.result}} // <a href="{% url 'testcase:testcase_update' row.id %}">수정</a> // <a href="{% url 'testcase:testcase_delete' row.id %}">삭제</a>
+        </li>
+        {% endfor %}
+
+    </ul> -->
+    <p><a href="{% url 'testcase:testcase_add' %}">등록</a></p>
+    <table border='1'>
+        <thead >
+            <tr>
+                <th>측정일시</th>
+                <th>대분류</th>
+                <th>중분류</th>
+                <th>소분류</th>
+                <th>중요도</th>
+                <th>상세화면</th>
+                <th>측정결과</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in testcase %}
+            <tr>
+                <td>-</td>
+                <td>{{row.suite}}</td>
+                <td>{{row.case}}</td>
+                <td>{{row.task}}</td>
+                <td>{{row.priority}}</td>
+                <td>{{row.context}}</td>
+                <td>{{row.result}}</td>
+                <td><a href="{% url 'testcase:testcase_update' row.id %}">수정</a></td>
+                <td><a href="{% url 'testcase:testcase_delete' row.id %}">삭제</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endblock %}
