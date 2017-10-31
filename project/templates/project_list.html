@@ -16,16 +16,14 @@
             locale: 'ko',
         // put your options and callbacks here
         events: [
-				{
-					title: 'Long Event',
-					start: '2017-10-07',
-					end: '2017-10-10'
-				},
+            {% for prj in projects %}
                 {
-					title: 'S200 벤치마크 ',
-					start: '2017-10-17',
-					end: '2017-10-19'
-				}]
+                    title:'{{prj.name }}', 
+                    start:'{{prj.start_date}}',
+                    end:'{{prj.end_date}}',
+                },
+            {% endfor %}
+            ]
         });
     });
 </script>
